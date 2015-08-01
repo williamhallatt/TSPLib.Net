@@ -39,10 +39,10 @@ namespace TspLibNet.TSP
         {
             if (reader == null)
             {
-                throw new ArgumentNullException("reader");
+                throw new ArgumentNullException(nameof(reader));
             }
 
-            List<string> lines = new List<string>();
+            var lines = new List<string>();
             while (!reader.EndOfStream)
             {
                 string line = reader.ReadLine();
@@ -53,7 +53,7 @@ namespace TspLibNet.TSP
                 }
             }
 
-            TspFile tspFile = new TspFile();
+            var tspFile = new TspFile();
             List<string[]> sections = SplitToSections(lines);
             foreach(string[] section in sections)
             {
@@ -182,9 +182,9 @@ namespace TspLibNet.TSP
 
         private List<string[]> SplitToSections(IEnumerable<string> lines)
         {
-            List<string[]> sections = new List<string[]>();
-            List<string> section = new List<string>();
-            List<string> data = new List<string>(lines);
+            var sections = new List<string[]>();
+            var section = new List<string>();
+            var data = new List<string>(lines);
             for (int i = 0; i < data.Count; i++)
             {
                 string line = data[i];
@@ -367,8 +367,8 @@ namespace TspLibNet.TSP
 
         private List<int> ReadIntList(string sectionName, string[] lines)
         {
-            List<int> result = new List<int>();
-            StringBuilder builder = new StringBuilder();
+            var result = new List<int>();
+            var builder = new StringBuilder();
             for (int i = 1; i < lines.Length; i++)
             {
                 builder.Append(lines[i]);
@@ -389,8 +389,8 @@ namespace TspLibNet.TSP
 
         private List<double> ReadDoubleList(string sectionName, string[] lines)
         {
-            List<double> result = new List<double>();
-            StringBuilder builder = new StringBuilder();
+            var result = new List<double>();
+            var builder = new StringBuilder();
             for (int i = 1; i < lines.Length; i++)
             {
                 builder.Append(lines[i]);
@@ -408,11 +408,11 @@ namespace TspLibNet.TSP
 
         private List<int[]> ReadIntsArrayList(string sectionName, string[] lines)
         {
-            List<int[]> result = new List<int[]>();
-            StringBuilder builder = new StringBuilder();
+            var result = new List<int[]>();
+            var builder = new StringBuilder();
             for (int i = 1; i < lines.Length; i++)
             {
-                List<int> array = new List<int>();
+                var array = new List<int>();
                 foreach (string data in lines[i].Split(new[] { ' ', '\t', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries))
                 {
                     array.Add(int.Parse(data));
@@ -426,11 +426,11 @@ namespace TspLibNet.TSP
         
         private List<object[]> ReadIntAndDoublesArrayList(string sectionName, string[] lines)
         {
-            List<object[]> result = new List<object[]>();
-            StringBuilder builder = new StringBuilder();
+            var result = new List<object[]>();
+            var builder = new StringBuilder();
             for (int i = 1; i < lines.Length; i++)
             {
-                List<object> array = new List<object>();
+                var array = new List<object>();
                 string[] data = lines[i].Split(new[] { ' ', '\t', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
                 for (int j = 0; j < data.Length; j++)
                 {

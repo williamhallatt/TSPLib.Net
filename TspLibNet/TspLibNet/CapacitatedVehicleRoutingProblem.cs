@@ -62,12 +62,12 @@ namespace TspLibNet
         {
             if (depotsProvider == null)
             {
-                throw new ArgumentNullException("depotsProvider");
+                throw new ArgumentNullException(nameof(depotsProvider));
             }
 
             if (demandProvider == null)
             {
-                throw new ArgumentNullException("demandProvider");
+                throw new ArgumentNullException(nameof(demandProvider));
             }
 
             DepotsProvider = depotsProvider;
@@ -93,10 +93,10 @@ namespace TspLibNet
         {
             if (tspFile.Type != FileType.CVRP)
             {
-                throw new ArgumentOutOfRangeException("tspFile");
+                throw new ArgumentOutOfRangeException(nameof(tspFile));
             }
 
-            TspFileDataExtractor extractor = new TspFileDataExtractor(tspFile);
+            var extractor = new TspFileDataExtractor(tspFile);
             var nodeProvider = extractor.MakeNodeProvider();
             var nodes = nodeProvider.GetNodes();
             var edgeProvider = extractor.MakeEdgeProvider(nodes);
@@ -117,20 +117,24 @@ namespace TspLibNet
         /// </summary>
         public IDemandProvider DemandProvider { get; protected set; }
 
+
         /// <summary>
         /// Gets tour distance for a given problem
         /// </summary>
         /// <param name="tour">Tour to check</param>
         /// <returns>Tour distance</returns>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Code Notifications", "RECS0083:Shows NotImplementedException throws in the quick task bar", Justification = "<Pending>")]
         public override double TourDistance(ITour tour)
         {
             throw new NotImplementedException();
         }
 
+
         /// <summary>
         /// Validate given solution
         /// </summary>
         /// <param name="tour">Tour to check</param>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Code Notifications", "RECS0083:Shows NotImplementedException throws in the quick task bar", Justification = "<Pending>")]
         protected void ValidateTour(ITour tour)
         {
             throw new NotImplementedException();

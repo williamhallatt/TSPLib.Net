@@ -75,13 +75,13 @@ namespace TspLibNet
         {
             if (tspFile.Type != FileType.SOP)
             {
-                throw new ArgumentOutOfRangeException("tspFile");
+                throw new ArgumentOutOfRangeException(nameof(tspFile));
             }
 
             double weight = tspFile.EdgeWeights[0];
             tspFile.EdgeWeights.RemoveAt(0);
 
-            TspFileDataExtractor extractor = new TspFileDataExtractor(tspFile);
+            var extractor = new TspFileDataExtractor(tspFile);
             var nodeProvider = extractor.MakeNodeProvider();
             var nodes = nodeProvider.GetNodes();
             var edgeProvider = extractor.MakeEdgeProvider(nodes);
@@ -93,20 +93,24 @@ namespace TspLibNet
             return new SequentialOrderingProblem(tspFile.Name, tspFile.Comment, nodeProvider, edgeProvider, edgeWeightsProvider, fixedEdgesProvider);
         }
 
+
         /// <summary>
         /// Gets tour distance for a given problem
         /// </summary>
         /// <param name="tour">Tour to check</param>
         /// <returns>Tour distance</returns>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Code Notifications", "RECS0083:Shows NotImplementedException throws in the quick task bar", Justification = "<Pending>")]
         public override double TourDistance(ITour tour)
         {
             throw new NotImplementedException();
         }
 
+
         /// <summary>
         /// Validate given solution
         /// </summary>
         /// <param name="tour">Tour to check</param>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Code Notifications", "RECS0083:Shows NotImplementedException throws in the quick task bar", Justification = "<Pending>")]
         protected void ValidateTour(ITour tour)
         {
             throw new NotImplementedException();
