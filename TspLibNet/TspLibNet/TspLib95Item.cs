@@ -47,7 +47,7 @@ namespace TspLibNet
         {
             if (problem == null)
             {
-                throw new ArgumentNullException("problem");
+                throw new ArgumentNullException(nameof(problem));
             }
 
             Problem = problem;

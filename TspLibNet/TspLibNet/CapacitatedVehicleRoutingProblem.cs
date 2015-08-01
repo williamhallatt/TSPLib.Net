@@ -62,12 +62,12 @@ namespace TspLibNet
         {
             if (depotsProvider == null)
             {
-                throw new ArgumentNullException("depotsProvider");
+                throw new ArgumentNullException(nameof(depotsProvider));
             }
 
             if (demandProvider == null)
             {
-                throw new ArgumentNullException("demandProvider");
+                throw new ArgumentNullException(nameof(demandProvider));
             }
 
             DepotsProvider = depotsProvider;
@@ -122,10 +122,10 @@ namespace TspLibNet
         {
             if (tspFile.Type != FileType.CVRP)
             {
-                throw new ArgumentOutOfRangeException("tspFile");
+                throw new ArgumentOutOfRangeException(nameof(tspFile));
             }
 
-            TspFileDataExtractor extractor = new TspFileDataExtractor(tspFile);
+            var extractor = new TspFileDataExtractor(tspFile);
             var nodeProvider = extractor.MakeNodeProvider();
             var nodes = nodeProvider.GetNodes();
             var edgeProvider = extractor.MakeEdgeProvider(nodes);

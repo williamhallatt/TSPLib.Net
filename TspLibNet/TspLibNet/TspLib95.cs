@@ -114,7 +114,7 @@ namespace TspLibNet
         {
             if (string.IsNullOrWhiteSpace(tspLib95Path))
             {
-                throw new ArgumentNullException("tspLib95Path");
+                throw new ArgumentNullException(nameof(tspLib95Path));
             }
 
             if (!Directory.Exists(tspLib95Path))
@@ -263,7 +263,7 @@ namespace TspLibNet
         {
             if (string.IsNullOrEmpty(name))
             {
-                throw new ArgumentNullException("name");
+                throw new ArgumentNullException(nameof(name));
             }
 
             name = name.Replace(extension, "");
@@ -311,7 +311,7 @@ namespace TspLibNet
                     return HamiltonianCycleProblem.FromFile(filename);
             }
 
-            throw new ArgumentOutOfRangeException("type");
+            throw new ArgumentOutOfRangeException(nameof(type));
         }
 
         /// <summary>

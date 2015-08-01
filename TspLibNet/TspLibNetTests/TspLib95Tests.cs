@@ -16,7 +16,7 @@ namespace TspLibNetTests
             var tspLib = new TspLib95(RootDir);
             tspLib.LoadAllTSP();
             var items = tspLib.TSPItems();
-            Assert.AreEqual(Enumerable.Count(items), 112);
+            Assert.AreEqual(items.Count(), 112);
         }
 
         [TestMethod]
@@ -25,7 +25,7 @@ namespace TspLibNetTests
             var tspLib = new TspLib95(RootDir);
             tspLib.LoadAllATSP();
             var items = tspLib.ATSPItems();
-            Assert.AreEqual(Enumerable.Count(items), 19);
+            Assert.AreEqual(items.Count(), 19);
         }
 
         [TestMethod]
@@ -34,7 +34,7 @@ namespace TspLibNetTests
             var tspLib = new TspLib95(RootDir);
             tspLib.LoadAllHCP();
             var items = tspLib.HCPItems();
-            Assert.AreEqual(Enumerable.Count(items), 9);
+            Assert.AreEqual(items.Count(), 9);
         }
 
         [TestMethod]
@@ -43,7 +43,7 @@ namespace TspLibNetTests
             var tspLib = new TspLib95(RootDir);
             tspLib.LoadAllSOP();
             var items = tspLib.SOPItems();
-            Assert.AreEqual(Enumerable.Count(items), 41);
+            Assert.AreEqual(items.Count(), 41);
         }
 
         [TestMethod]
@@ -52,7 +52,7 @@ namespace TspLibNetTests
             var tspLib = new TspLib95(RootDir);
             tspLib.LoadAllCVRP();
             var items = tspLib.CVRPItems();
-            Assert.AreEqual(Enumerable.Count(items), 16);
+            Assert.AreEqual(items.Count(), 16);
         }
     }
 }
