@@ -23,14 +23,30 @@
 
 namespace TspLibNet
 {
+    using Graph.Edges;
+    using Graph.EdgeWeights;
+    using Graph.FixedEdges;
+    using Graph.Nodes;
     using Tours;
 
+    /// <summary>
+    /// Represents possible TSPLIB problem types.
+    /// </summary>
     public enum ProblemType
     {
+        /// <summary> Symmetric TSP </summary>
         TSP,
+
+        /// <summary> Aymmetric TSP </summary>
         ATSP,
+
+        /// <summary> Hamiltonian Cycle Problem </summary>
         HCP,
+
+        /// <summary> Sequential Ordering Problem </summary>
         SOP,
+
+        /// <summary> Capacitated Vehicle Routing Problem </summary>
         CVRP
     }
 
@@ -60,5 +76,25 @@ namespace TspLibNet
         /// <param name="tour">Tour to check</param>
         /// <returns>Tour distance</returns>
         double TourDistance(ITour tour);
+
+        /// <summary>
+        /// Gets nodes provider
+        /// </summary>
+        INodeProvider NodeProvider { get; }
+
+        /// <summary>
+        /// Gets Edges provider
+        /// </summary>
+        IEdgeProvider EdgeProvider { get; }
+
+        /// <summary>
+        /// Gets Edge Weights Provider
+        /// </summary>
+        IEdgeWeightsProvider EdgeWeightsProvider { get; }
+
+        /// <summary>
+        /// Gets Fixed Edges Provider
+        /// </summary>
+        IFixedEdgesProvider FixedEdgesProvider { get; }
     }
 }
